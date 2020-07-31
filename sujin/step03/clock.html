@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<title>clock</title>
+	<style>
+		
+	</style>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.num {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 20px;
+			/*font-weight: bold;*/
+			text-align: center;
+			padding: 10px;
+			box-sizing: border-box;
+			color: #77878F
+		}
+
+		#num1 {
+			transform: rotate(30deg);
+		}
+		#num2 {
+			transform: rotate(60deg);
+		}
+		#num3 {
+			transform: rotate(90deg);
+		}
+		#num4 {
+			transform: rotate(120deg);
+		}
+		#num5 {
+			transform: rotate(150deg);
+		}
+		#num6 {
+			transform: rotate(180deg);
+		}
+		#num7 {
+			transform: rotate(210deg);
+		}
+		#num8 {
+			transform: rotate(240deg);
+		}
+		#num9 {
+			transform: rotate(270deg);
+		}
+		#num10 {
+			transform: rotate(300deg);
+		}
+		#num11 {
+			transform: rotate(330deg);
+		}
+		#num12 {
+			transform: rotate(360deg);
+		}
+
+		#num1 > p {
+			transform: rotate(-30deg);
+		}
+		#num2 > p {
+			transform: rotate(-60deg);
+		}
+		#num3 > p {
+			transform: rotate(-90deg);
+		}
+		#num4 > p {
+			transform: rotate(-120deg);
+		}
+		#num5 > p {
+			transform: rotate(-150deg);
+		}
+		#num6 > p {
+			transform: rotate(-180deg);
+		}
+		#num7 > p {
+			transform: rotate(-210deg);
+		}
+		#num8 > p {
+			transform: rotate(-240deg);
+		}
+		#num9 > p {
+			transform: rotate(-270deg);
+		}
+		#num10 > p {
+			transform: rotate(-300deg);
+		}
+		#num11 > p {
+			transform: rotate(-330deg);
+		}
+
+		.clock-wrap {
+			width: 100%;
+			height: 100vh;
+			background-color: #F0ECEB;
+		}
+		.clock-contents {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 5px solid #77878F;
+			background-color: #fff;
+			border-radius: 50%;
+		}
+		.clock-hand {
+			position: absolute;
+			bottom: 50%;
+			left: 50%;
+			transform: translateX(-80%) rotate(90deg);
+			transform-origin: bottom;
+			border-radius: 12px;
+		}
+		#circle {
+			width: 20px;
+			height: 20px;
+			background-color: #88A3AD;
+			border-radius: 50%;
+			z-index: 5;	
+		}
+
+		#hours-hand {
+			width: 8px;
+			height: 100px;
+			background-color: #AAB9BD;	
+			z-index: 4;	
+		}
+
+		#min-hand {
+			width: 5px;
+			height: 150px;
+			background-color: #CCCACA;
+			z-index: 3;	
+		}
+
+		#sec-hand {
+			width: 3px;
+			height: 200px;
+			background-color: #F0E4DD;
+			z-index: 2;	
+		}
+
+		#clock-text {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #88A3AD;
+			z-index: 6;
+		}
+	</style>
+</head>
+<body>
+	<div class="clock-wrap">
+		<div class="clock-contents">
+			<div class="num" id="num1">
+				<p>1</p>
+			</div>
+			<div class="num" id="num2">
+				<p>2</p>
+			</div>
+			<div class="num" id="num3">
+				<p>3</p>
+			</div>
+			<div class="num" id="num4">
+				<p>4</p>
+			</div>
+			<div class="num" id="num5">
+				<p>5</p>
+			</div>
+			<div class="num" id="num6">
+				<p>6</p>
+			</div>
+			<div class="num" id="num7">
+				<p>7</p>
+			</div>
+			<div class="num" id="num8">
+				<p>8</p>
+			</div>
+			<div class="num" id="num9">
+				<p>9</p>
+			</div>
+			<div class="num" id="num10">
+				<p>10</p>
+			</div>
+			<div class="num" id="num11">
+				<p>11</p>
+			</div>
+			<div class="num" id="num12">
+				<p>12</p>
+			</div>
+			<div class="clock-hand" id="circle"></div>
+			<div class="clock-hand" id="hours-hand"></div>
+			<div class="clock-hand" id="min-hand"></div>
+			<div class="clock-hand" id="sec-hand"></div>
+		</div>
+
+		<div id="clock-text"></div>
+	</div>
+
+	<script type="text/javascript">
+		function clockFunction(){
+			// 해당 element 가져오기
+			var hoursHand = document.getElementById('hours-hand');
+			var minHand = document.getElementById('min-hand');
+			var secHand = document.getElementById('sec-hand');
+
+			// 객체 초기화
+			var date = new Date();
+
+			// 현재 시간 / 각각 초,분,시간 환산
+			var hours = date.getHours()/12; //24시간 00~23
+			var min = date.getMinutes()/60; //60분 00~59
+			var sec = date.getSeconds()/60; //60초 00~59
+
+
+			// 실시간 rotate(360도 회전 수 곱하기)
+			hoursHand.style.transform = 'rotate('+hours*360+'deg)';
+			minHand.style.transform = 'rotate('+min*360+'deg)';
+			secHand.style.transform = 'rotate('+sec*360+'deg)';
+		}
+
+		// 1초마다 움직이기
+		setInterval(clockFunction,1000);
+
+		function clockText(){
+			var txtDate = new Date();
+
+			var hours = txtDate.getHours();
+			var min = txtDate.getMinutes();
+			var sec = txtDate.getSeconds();
+	
+
+			if(sec<10){
+				sec ="0"+sec;
+			}
+
+			var currentTime = hours + " : " + min + " : " + sec;
+
+			document.getElementById('clock-text').innerHTML = currentTime;
+		}
+		// 1초마다 카운트
+		setInterval(clockText,1000);
+	</script>
+</body>
+</html>
