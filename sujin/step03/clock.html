@@ -21,83 +21,13 @@
 			width: 100%;
 			height: 100%;
 			font-size: 20px;
-			/*font-weight: bold;*/
+			font-weight: bold;
 			text-align: center;
-			padding: 10px;
+			padding: 20px;
 			box-sizing: border-box;
-			color: #77878F
+			color: #77878F;
 		}
 
-		#num1 {
-			transform: rotate(30deg);
-		}
-		#num2 {
-			transform: rotate(60deg);
-		}
-		#num3 {
-			transform: rotate(90deg);
-		}
-		#num4 {
-			transform: rotate(120deg);
-		}
-		#num5 {
-			transform: rotate(150deg);
-		}
-		#num6 {
-			transform: rotate(180deg);
-		}
-		#num7 {
-			transform: rotate(210deg);
-		}
-		#num8 {
-			transform: rotate(240deg);
-		}
-		#num9 {
-			transform: rotate(270deg);
-		}
-		#num10 {
-			transform: rotate(300deg);
-		}
-		#num11 {
-			transform: rotate(330deg);
-		}
-		#num12 {
-			transform: rotate(360deg);
-		}
-
-		#num1 > p {
-			transform: rotate(-30deg);
-		}
-		#num2 > p {
-			transform: rotate(-60deg);
-		}
-		#num3 > p {
-			transform: rotate(-90deg);
-		}
-		#num4 > p {
-			transform: rotate(-120deg);
-		}
-		#num5 > p {
-			transform: rotate(-150deg);
-		}
-		#num6 > p {
-			transform: rotate(-180deg);
-		}
-		#num7 > p {
-			transform: rotate(-210deg);
-		}
-		#num8 > p {
-			transform: rotate(-240deg);
-		}
-		#num9 > p {
-			transform: rotate(-270deg);
-		}
-		#num10 > p {
-			transform: rotate(-300deg);
-		}
-		#num11 > p {
-			transform: rotate(-330deg);
-		}
 
 		.clock-wrap {
 			width: 100%;
@@ -152,53 +82,46 @@
 			z-index: 2;	
 		}
 
-		#clock-text {
+		#digital-clock {
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #88A3AD;
 			z-index: 6;
 		}
+
+		.second-lines {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+
+		.second-lines::before {
+			content: '';
+			display: inline-block;
+			width: 1px;
+			height: 9px;
+			box-sizing: border-box;
+			background-color: #77878F;
+		}
+
+		.second-multiples-ele::before {
+			width: 2px;
+			height: 12px;
+		}
 	</style>
 </head>
 <body>
 	<div class="clock-wrap">
 		<div class="clock-contents">
-			<div class="num" id="num1">
-				<p>1</p>
+			<div class="clock-hours">
+				<!-- auto generated hour number elements -->
 			</div>
-			<div class="num" id="num2">
-				<p>2</p>
-			</div>
-			<div class="num" id="num3">
-				<p>3</p>
-			</div>
-			<div class="num" id="num4">
-				<p>4</p>
-			</div>
-			<div class="num" id="num5">
-				<p>5</p>
-			</div>
-			<div class="num" id="num6">
-				<p>6</p>
-			</div>
-			<div class="num" id="num7">
-				<p>7</p>
-			</div>
-			<div class="num" id="num8">
-				<p>8</p>
-			</div>
-			<div class="num" id="num9">
-				<p>9</p>
-			</div>
-			<div class="num" id="num10">
-				<p>10</p>
-			</div>
-			<div class="num" id="num11">
-				<p>11</p>
-			</div>
-			<div class="num" id="num12">
-				<p>12</p>
+			<div class="clock-seconds">
+				<!-- auto generated second line elements -->
 			</div>
 			<div class="clock-hand" id="circle"></div>
 			<div class="clock-hand" id="hours-hand"></div>
@@ -206,52 +129,94 @@
 			<div class="clock-hand" id="sec-hand"></div>
 		</div>
 
-		<div id="clock-text"></div>
+		<div id="digital-clock"></div>
 	</div>
 
 	<script type="text/javascript">
+
 		function clockFunction(){
-			// 해당 element 가져오기
-			var hoursHand = document.getElementById('hours-hand');
-			var minHand = document.getElementById('min-hand');
-			var secHand = document.getElementById('sec-hand');
+			var hoursHand = document.querySelector('#hours-hand');
+			var minHand = document.querySelector('#min-hand');
+			var secHand = document.querySelector('#sec-hand');
 
-			// 객체 초기화
-			var date = new Date();
-
-			// 현재 시간 / 각각 초,분,시간 환산
-			var hours = date.getHours()/12; //24시간 00~23
-			var min = date.getMinutes()/60; //60분 00~59
-			var sec = date.getSeconds()/60; //60초 00~59
-
-
-			// 실시간 rotate(360도 회전 수 곱하기)
-			hoursHand.style.transform = 'rotate('+hours*360+'deg)';
-			minHand.style.transform = 'rotate('+min*360+'deg)';
-			secHand.style.transform = 'rotate('+sec*360+'deg)';
+			var currentDate = new Date();
+			var hours = currentDate.getHours();
+			var min = currentDate.getMinutes();
+			var sec = currentDate.getSeconds();
+			
+			var clockHourMax = 12;
+			var clockMinMax = 60;
+			var clockSecMax = 60;
+			var circleDegree = 360;
+		
+			hoursHand.style.transform = 'rotate('+hours/clockHourMax*circleDegree+'deg)';
+			minHand.style.transform = 'rotate('+min/clockMinMax*circleDegree+'deg)';
+			secHand.style.transform = 'rotate('+sec/clockSecMax*circleDegree+'deg)';
 		}
-
-		// 1초마다 움직이기
 		setInterval(clockFunction,1000);
+		
+		function digitalClock(){
 
-		function clockText(){
-			var txtDate = new Date();
-
-			var hours = txtDate.getHours();
-			var min = txtDate.getMinutes();
-			var sec = txtDate.getSeconds();
-	
-
-			if(sec<10){
-				sec ="0"+sec;
-			}
+			var currentDate = new Date();
+			var hours = currentDate.getHours();
+			var min = currentDate.getMinutes();
+			var sec = currentDate.getSeconds();
+			min = addNumber(min);
+			sec = addNumber(sec);
 
 			var currentTime = hours + " : " + min + " : " + sec;
 
-			document.getElementById('clock-text').innerHTML = currentTime;
+			document.getElementById('digital-clock').innerHTML = currentTime;
 		}
-		// 1초마다 카운트
-		setInterval(clockText,1000);
+		setInterval(digitalClock,1000);
+
+		function addNumber(singleDigit){
+			if(singleDigit < 10){
+				singleDigit = "0" + singleDigit;
+			}
+
+			return singleDigit;
+		}
+
+		function createNumbers(){
+			var hourMax = 12;
+			var clockHours = document.querySelector('.clock-hours');
+
+			for(var i = 1; i<=hourMax; i++){
+				var numElement = document.createElement('div');
+				numElement.classList.add('num');
+				numElement.style.transform = 'rotate(' + 30 * i + 'deg)';
+
+				var numberText = document.createElement('p');
+				numberText.textContent = i;
+				numberText.style.transform = 'rotate('+ -30 * i + 'deg)';
+				numElement.appendChild(numberText);
+				clockHours.appendChild(numElement);
+			}
+			
+		}
+
+		function createSecondLines(){
+			var secondMax = 60;
+			var degreeDistance = 6;
+			var clockSeconds = document.querySelector('.clock-seconds');
+			for(var i = 0; i < secondMax; i++){
+				var secondLineDegree = degreeDistance * i;
+				
+				var secondLineElement = document.createElement('div');
+				secondLineElement.classList.add('second-lines');
+				secondLineElement.style.transform = 'rotate(' + secondLineDegree + 'deg)';
+				clockSeconds.appendChild(secondLineElement);
+				
+				if(secondLineDegree % 30 ==0){
+					secondLineElement.classList.add('second-multiples-ele');
+				}				
+			}
+		}
+
+		createNumbers();
+		createSecondLines();
+
 	</script>
 </body>
 </html>
