@@ -10,15 +10,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
     <div class="wrap">
-        <header>
-            <div class="flex-wrap header-contanier">
-                <div class="header-items header-logo header-items-mr">
-                    <a href="/" class="header-links">
+        <header class="pc-header">
+            <div class="header-contanier">
+                <div class="header-items header-logo">
+                    <a href="/" class="header-logo-link">
                         <svg class="github-icon svg-icons" height="32" viewBox="0 0 16 16" version="1.1" width="32"
                             aria-hidden="true">
                             <path fill-rule="evenodd"
@@ -27,22 +28,23 @@
                         </svg>
                     </a>
                 </div>
-                <div class="header-items flex-wrap flex-auto">
-                    <div class="search-wrap flex-auto header-items-mr">
-                        <form action="" class="search-form flex-wrap">
+                <div class="header-items header-items-search">
+                    <div class="search-wrap">
+                        <form action="" class="search-form">
                             <input type="text" placeholder="Search or jump to..." />
                             <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="">
                         </form>
                     </div>
 
                     <nav>
-                        <a href="/" class="header-links header-items-mr">Pull requests</a>
-                        <a href="/" class="header-links header-items-mr">Issues</a>
-                        <a href="/" class="header-links header-items-mr">Marketplace</a>
-                        <a href="/" class="header-links header-items-mr">Explore</a>
+                        <a href="/" class="header-links pc-txt">Pull requests</a>
+                        <a href="/" class="header-links s-pc-txt">Pulls</a>
+                        <a href="/" class="header-links">Issues</a>
+                        <a href="/" class="header-links">Marketplace</a>
+                        <a href="/" class="header-links">Explore</a>
                     </nav>
                 </div>
-                <div class="header-items header-items-mr">
+                <div class="header-items">
                     <a href="" class="header-links">
                         <svg class="bell-icon svg-icons" viewBox="0 0 16 16" version="1.1" width="16" height="16"
                             aria-hidden="true">
@@ -55,7 +57,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="header-items header-items-mr">
+                <div class="header-items">
                     <a href="" class="header-links">
                         <svg class="plus-icon svg-icons" viewBox="0 0 16 16" version="1.1" width="16" height="16"
                             aria-hidden="true">
@@ -67,10 +69,78 @@
                     </a>
                 </div>
                 <div class="header-items">
-                    <a href="" class="header-links">
+                    <a href="" class="header-links header-profile-icon">
                         <div class="profile-image-icon"></div>
                         <span class="arrow-down"></span>
                     </a>
+                </div>
+            </div>
+        </header>
+
+        <header class="mo-header">
+            <div class="header-contanier">
+                <div class="header-items header-toggle-icon" onclick="mobileMenuOn()">
+                    <svg height="24" class="toggle-icons svg-icons" viewBox="0 0 16 16" version="1.1" width="24"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+                        </path>
+                    </svg>
+                </div>
+
+                <div class="header-items header-logo">
+                    <a href="/" class="header-logo-link">
+                        <svg class="github-icon svg-icons" height="32" viewBox="0 0 16 16" version="1.1" width="32"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="header-items">
+                    <a href="" class="header-links">
+                        <svg class="bell-icon svg-icons" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                            aria-hidden="true">
+                            <path
+                                d="M8 16a2 2 0 001.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 008 16z">
+                            </path>
+                            <path fill-rule="evenodd"
+                                d="M8 1.5A3.5 3.5 0 004.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.018.018 0 00-.003.01l.001.006c0 .002.002.004.004.006a.017.017 0 00.006.004l.007.001h10.964l.007-.001a.016.016 0 00.006-.004.016.016 0 00.004-.006l.001-.007a.017.017 0 00-.003-.01l-1.703-2.554a1.75 1.75 0 01-.294-.97V5A3.5 3.5 0 008 1.5zM3 5a5 5 0 0110 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0113.482 13H2.518a1.518 1.518 0 01-1.263-2.36l1.703-2.554A.25.25 0 003 7.947V5z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="header-2depth-box header-items">
+                <div class="header-items-search header-2depth-items">
+                    <div class="search-wrap">
+                        <form action="" class="search-form">
+                            <input type="text" placeholder="Search or jump to..." />
+                            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="">
+                        </form>
+                    </div>
+
+                    <nav>
+                        <a href="/" class="header-links">Dashboard</a>
+                        <a href="/" class="header-links">Pull requests</a>
+                        <a href="/" class="header-links">Issues</a>
+                        <a href="/" class="header-links">Marketplace</a>
+                        <a href="/" class="header-links">Explore</a>
+                        <a href="" class="header-links header-profile-icon">
+                            <div class="profile-image-icon"></div>
+                            lsj5677
+                        </a>
+                        <a href="" class="header-links header-sign-out">
+                            <svg class="svg-icons sign-out-icon" viewBox="0 0 16 16" version="1.1" width="16"
+                                height="16" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 010 1.5h-2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 010 1.5h-2.5A1.75 1.75 0 012 13.25V2.75zm10.44 4.5H6.75a.75.75 0 000 1.5h5.69l-1.97 1.97a.75.75 0 101.06 1.06l3.25-3.25a.75.75 0 000-1.06l-3.25-3.25a.75.75 0 10-1.06 1.06l1.97 1.97z">
+                                </path>
+                            </svg>
+                            Sign out
+                        </a>
+                    </nav>
                 </div>
             </div>
         </header>
@@ -79,8 +149,8 @@
             <!-- sticky nav -->
             <div class="subnav">
                 <div class="subnav-container">
-                    <nav class="subnav-contents flex-wrap">
-                        <div class="subnav-items col-4"></div>
+                    <nav class="subnav-contents">
+                        <div class="subnav-items col-4 dump-box"></div>
                         <div class="subnav-items">
                             <a href="" class="subnav-active subnav-link">Explore</a>
                             <a href="" class="subnav-link">Topics</a>
@@ -89,7 +159,7 @@
                             <a href="" class="subnav-link">Events</a>
                             <a href="" class="subnav-link">Github Sponsors</a>
                         </div>
-                        <div class="subnav-items flex-auto subnav-email-button">
+                        <div class="subnav-items subnav-email-button">
                             <a href="">Get email updates</a>
                         </div>
                     </nav>
@@ -98,11 +168,11 @@
 
             <!-- feed contents -->
             <div class="main-wrap">
-                <div class="flex-wrap flex-start">
+                <div class="main-container">
                     <!-- profile -->
                     <div class="col-4 profile-box main-contents">
                         <div class="profile-contents">
-                            <div class="profile-items">
+                            <div class="profile-items profile-info">
                                 <div class="profile-image">
                                     <img src="" alt="">
                                 </div>
@@ -127,7 +197,7 @@
                             <h2>Here's what we found based on your interests...</h2>
 
                             <article>
-                                <div class="article-text article-contents article-pd-rr">
+                                <div class="article-text article-contents">
                                     <svg height="14" class="telescope-icon svg-icons" fill="#24292e" viewBox="0 0 16 16"
                                         version="1.1" width="14" aria-hidden="true">
                                         <path fill-rule="evenodd"
@@ -136,7 +206,7 @@
                                     </svg>
                                     Based on people you follow
                                 </div>
-                                <div class="flex-wrap article-title article-contents article-pd-rr">
+                                <div class="flex-wrap article-title article-contents">
                                     <div class="flex-auto article-title-box">
                                         <svg color="gray" mr="2" height="16" class="repo-icon svg-icons"
                                             viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
@@ -144,11 +214,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">github</a>
-                                        /
-                                        <a href="" class="a-link-bold">gitignore</a>
-
+                                        <span>
+                                            <a href="">github</a>
+                                            /
+                                            <a href="" class="a-link-bold">gitignore</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -167,7 +237,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="article-tab-nav article-contents article-pd-rr">
+                                <div class="article-tab-nav article-contents">
                                     <nav class="tab-nav-tabs">
                                         <a href="" class="tab-nav-action">
                                             <svg color="gray_dark" height="16" class="code-icon svg-icons"
@@ -231,11 +301,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">wwayne</a>
-                                        /
-                                        <a href="" class="a-link-bold">react-tooltip</a>
-
+                                        <span>
+                                            <a href="">wwayne</a>
+                                            /
+                                            <a href="" class="a-link-bold">react-tooltip</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -318,11 +388,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">wwayne</a>
-                                        /
-                                        <a href="" class="a-link-bold">react-tooltip</a>
-
+                                        <span>
+                                            <a href="">wwayne</a>
+                                            /
+                                            <a href="" class="a-link-bold">react-tooltip</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -405,11 +475,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">wwayne</a>
-                                        /
-                                        <a href="" class="a-link-bold">react-tooltip</a>
-
+                                        <span>
+                                            <a href="">wwayne</a>
+                                            /
+                                            <a href="" class="a-link-bold">react-tooltip</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -492,11 +562,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">wwayne</a>
-                                        /
-                                        <a href="" class="a-link-bold">react-tooltip</a>
-
+                                        <span>
+                                            <a href="">wwayne</a>
+                                            /
+                                            <a href="" class="a-link-bold">react-tooltip</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -579,11 +649,11 @@
                                                 d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
                                             </path>
                                         </svg>
-
-                                        <a href="">wwayne</a>
-                                        /
-                                        <a href="" class="a-link-bold">react-tooltip</a>
-
+                                        <span>
+                                            <a href="">wwayne</a>
+                                            /
+                                            <a href="" class="a-link-bold">react-tooltip</a>
+                                        </span>
                                     </div>
                                     <div class="article-like-box article-like-button">
                                         <button class="article-like-items">
@@ -664,8 +734,8 @@
 
                             <div class="trending-contents">
                                 <article class="trending-items">
-                                    <div class="flex-wrap">
-                                        <div class="flex-auto">
+                                    <div class="trending-items-wrap">
+                                        <div class="trending-items-contents">
                                             <svg mr="2" color="gray" height="16" class="repo-icon svg-icons"
                                                 viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
                                                 <path fill-rule="evenodd"
@@ -687,8 +757,8 @@
                                 </article>
 
                                 <article class="trending-items">
-                                    <div class="flex-wrap">
-                                        <div class="flex-auto">
+                                    <div class="trending-items-wrap">
+                                        <div class="trending-items-contents">
                                             <svg mr="2" color="gray" height="16" class="repo-icon svg-icons"
                                                 viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
                                                 <path fill-rule="evenodd"
@@ -714,8 +784,8 @@
                                 </article>
 
                                 <article class="trending-items">
-                                    <div class="flex-wrap">
-                                        <div class="flex-auto">
+                                    <div class="trending-items-wrap">
+                                        <div class="trending-items-contents">
                                             <svg mr="2" color="gray" height="16" class="repo-icon svg-icons"
                                                 viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
                                                 <path fill-rule="evenodd"
@@ -741,8 +811,8 @@
                                 </article>
 
                                 <article class="trending-items">
-                                    <div class="flex-wrap">
-                                        <div class="flex-auto">
+                                    <div class="trending-items-wrap">
+                                        <div class="trending-items-contents">
                                             <svg mr="2" color="gray" height="16" class="repo-icon svg-icons"
                                                 viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
                                                 <path fill-rule="evenodd"
@@ -768,8 +838,8 @@
                                 </article>
 
                                 <article class="trending-items">
-                                    <div class="flex-wrap">
-                                        <div class="flex-auto">
+                                    <div class="trending-items-wrap">
+                                        <div class="trending-items-contents">
                                             <svg mr="2" color="gray" height="16" class="repo-icon svg-icons"
                                                 viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true">
                                                 <path fill-rule="evenodd"
@@ -943,7 +1013,7 @@
         <!-- footer -->
         <footer>
             <div class="footer-contents">
-                <div class="flex-wrap flex-align-baseline">
+                <div class="footer-container flex-wrap flex-align-baseline">
                     <div class="footer-subscript col-3">
                         <a href="">
                             <svg height="30" class="github-logo-icon svg-icons" viewBox="0 0 45 16" version="1.1"
@@ -1065,7 +1135,7 @@
             <div class="footer-contents footer-bottom-bar">
                 <div>
                     <div class="footer-bottom-bar-contents">
-                        <div class="flex-wrap justify-between">
+                        <div class="footer-bottom-bar-items flex-wrap justify-between">
                             <ul class="site-infomation flex-wrap">
                                 <li>© 2020 GitHub, Inc.</li>
                                 <li>
@@ -1140,6 +1210,12 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        function mobileMenuOn(){
+            document.querySelector('.header-2depth-box').classList.toggle('on');
+        }
+    </script>
 </body>
 
 </html>
