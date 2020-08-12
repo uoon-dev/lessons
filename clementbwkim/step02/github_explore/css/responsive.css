@@ -1,0 +1,244 @@
+@media (max-width: 1012px){
+
+    header .gnb-menu ul li:first-child{
+        display: inline-block;
+    }
+    header .gnb-menu ul li:nth-child(2){
+        display: none;
+    }
+    header .right-menu .mypage img{
+        vertical-align: sub;
+    }
+    header .right-menu .mypage i{
+        vertical-align: unset;
+    }
+
+    .sub-main{
+        flex-wrap: wrap;
+        padding: 0 40px;
+    }
+    .lnb-menu{
+        padding: 0 40px;
+    }
+    
+    .lnb-menu .emptybox{
+        display: none;
+    }
+    .left{
+        width: 100%;
+        margin-top: 0;
+        padding: 24px 0 0;
+    }
+    .repositories{
+        width: 66.66667%;        }
+    .right{
+        width: 33.33333%;    
+    }
+    footer .footer-contents{
+        padding: 0 40px;
+    }
+    ]
+    footer .footer-container{
+        
+    }
+    footer .footer-container .footer-element-wrap{
+        flex-wrap: wrap;
+    }
+    footer .footer-contents .footer-frame .footer-element-wrap .github-newsletter{
+        width: 100%;
+        margin-bottom: 32px;
+    }
+    footer .footer-contents .footer-frame .footer-element-wrap .footer-menu{
+        width: 25%;
+        padding-left: 0;
+    }
+    footer .footer-bottom ul li a{
+        color: #959da5;
+    }
+
+    footer .footer-bottom ul:first-child li a{
+        color: #586069;
+    }
+}
+
+@media (max-width: 767px){
+    header{
+        padding: 16px;
+    }
+    /* mobile header */
+    header .mobile-menuList{
+        display: none;
+    }
+    
+    header .mobile-menuList.on {
+        display: block;
+    }
+
+    header .hamburger-icon{
+        display: inline-block;    
+    }
+    header .hamburger-icon a{
+        vertical-align: -webkit-baseline-middle;
+    }
+    header .gnb-menu .logo a{
+        line-height: 0;
+    }
+    
+    header .hamburger-icon .menu-icon svg{
+        color: #fff;
+        fill: currentColor;
+    }
+ 
+    header .gnb-menu{
+        justify-content: space-around;
+    }
+    
+    header .gnb-menu .search-bar{
+        display: none;
+    }
+    header .gnb-menu nav{
+        display: none;
+    }
+   
+    header .right-menu .notice-bell{
+        margin-right: 0;
+    }
+    
+    header .right-menu .create-list{
+        display: none;
+    }
+    header .right-menu .mypage{
+        display: none;
+    }
+    main .lnb-menu {
+        z-index: 25;
+    }
+    
+    main .lnb-menu nav{
+        padding: 0;
+        justify-content: center;
+    }
+    main .lnb-menu nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    main .lnb-menu ul li a.lnb-active{
+        width: 100%;
+        border-bottom: #ffffff;
+        padding: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    main .lnb-menu nav ul li:first-child{
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        padding: 0;
+        margin-top: 8px;
+    }
+    main .lnb-menu nav ul li{
+        
+        cursor: pointer;
+        padding: 8px 0;
+        margin-right: 16px;
+    }
+    main .lnb-menu nav ul li a{
+        padding: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        color: #6a737d;
+    }
+    
+    
+/*     
+    main .lnb-menu nav ul li .lnb-active{
+       width: 100%;
+    }
+    main .lnb-menu nav ul li{
+     font-size: 12px;   
+    } */
+    
+    
+    main .lnb-menu .email-btn{
+        display: none;
+    }
+    
+    main .sub-main .left .profile .username {
+        display: flex;
+    }
+    main .sub-main .left .profile .username .userimg img{
+        margin: 16px;
+    }
+    main .sub-main .left .profile .username .userId {
+    flex: auto;
+    text-align: left;
+    padding: 16px 0;
+    line-height: 4.5;
+    }
+    main .sub-main .left .profile .username .userId span{
+        font-size: 18px;
+        font-weight: 400;
+        color: #24292E;
+    }
+    
+
+    .repositories{
+        width: 100%;
+        padding: 24px 0 0;
+    }
+    .repositories h2{
+        color: #24292E;
+    }
+
+    .right{
+        width: 100%;   
+        padding: 24px 0 0; 
+    }
+
+    .right .trending-developer .user-img img{
+        width: 151px;
+        height: 151px;
+    }
+    
+}
+@media (max-width: 543px){
+   
+    main .lnb-menu .email-btn{
+        display: none;
+    }
+    .sub-main{
+        padding: 0 16px;
+    }
+    .left{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .repositories{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .right{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .right .trending-developer .user-img img{
+        width: 107px;
+        height: 107px;
+    }
+
+    footer .footer-contents{
+        padding: 0 16px;
+    }
+    footer .footer-container .footer-contents .footer-frame .footer-element-wrap .footer-menu{
+        width: 50%;
+        margin-bottom: 40px;
+        padding-right: 16px;
+    }
+    footer .footer-container .footer-contents .footer-bottom{
+        flex-wrap: wrap-reverse;
+    }
+    footer .footer-container .footer-contents .footer-bottom ul:last-child{
+        margin-bottom: 16px;
+    }
+    
+}
