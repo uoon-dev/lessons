@@ -64,14 +64,14 @@
 @media (max-width: 767px){
     header{
         padding: 16px;
+        flex-wrap: wrap;
     }
-    /* mobile header */
     header .mobile-menuList{
         display: none;
     }
-    
     header .mobile-menuList.on {
         display: block;
+        width: 100%;
     }
 
     header .hamburger-icon{
@@ -84,10 +84,57 @@
         line-height: 0;
     }
     
-    header .hamburger-icon .menu-icon svg{
+    header .hamburger-icon svg{
         color: #fff;
         fill: currentColor;
     }
+
+    /* mobile header */
+    header div{
+        margin-right: 0;
+    }
+    
+    header .mobile-menuList ul img{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        vertical-align: text-bottom;
+    }
+    header .mobile-menuList ul svg{
+        vertical-align: text-bottom;
+        padding-left: 2px;
+        color: #fff;
+        fill: currentColor;
+    }
+    header .mobile-menuList ul span{
+        color: #fff;
+    }
+    
+    header .mobile-menuList ul li{
+        font: 14px;
+        padding: 8px 0;
+        border-top: 1px solid hsla(0,0%,100%,.125);
+    }
+    header .mobile-menuList ul li:first-child{
+        border-top: none;
+        margin-bottom: 12px;
+    }
+    
+    header .mobile-menuList ul li label{
+        background-color: hsla(0,0%,100%,.125);
+        border-radius: 6px;
+        padding: 1px 10px 6px;
+    }
+    header .mobile-menuList ul li label input[type=text]{
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        width: 97%;        
+    }
+    header .mobile-menuList ul li label input::placeholder{
+        color: #fff;
+    }
+    
  
     header .gnb-menu{
         justify-content: space-around;

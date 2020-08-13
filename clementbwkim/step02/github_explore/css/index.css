@@ -40,9 +40,9 @@ header{
 header div{
     margin-right: 16px;
 }
-.hamburger-icon {
+/* .hamburger-icon {
     display: none;
-}
+} */
 header .mobile-menuList{
     display: none;
 }

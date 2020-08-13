@@ -18,37 +18,7 @@
         <header>
             <!-- .hamburger-icon -->
             <div class="hamburger-icon" onclick="mobileMenuOpen()">
-                <a href="" class="menu-icon">
                 <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg>
-                </a>
-            </div>
-            <div class="mobile-menuList">
-                <ul>
-                    <li>
-                        <a href="">
-                        <input type="text" placeholder="">
-                        <img src="https://github.githubassets.com/images/search-key-slash.svg" alt=""
-                            class="mr-2 header-search-key-slash">
-                        </a>
-                    </li>
-                    <li><a href="" class="header-link">Dashboard</a></li>
-                    <li><a href="" class="header-link">Pull requests</a></li>
-                    <li><a href="" class="header-link">Issues</a></li>
-                    <li><a href="" class="header-link">Marketplace</a></li>
-                    <li><a href="" class="header-link">Explore</a></li>
-                    <li>
-                        <a href="">
-                            <img src="./img//60060205.jpg" alt="">
-                            <span>clementbwkim</span> 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <svg class="octicon octicon-sign-out v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 010 1.5h-2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 010 1.5h-2.5A1.75 1.75 0 012 13.25V2.75zm10.44 4.5H6.75a.75.75 0 000 1.5h5.69l-1.97 1.97a.75.75 0 101.06 1.06l3.25-3.25a.75.75 0 000-1.06l-3.25-3.25a.75.75 0 10-1.06 1.06l1.97 1.97z"></path></svg>
-                            <span>Sign out</span> 
-                        </a>
-                    </li>
-                </ul>
             </div>
             <!-- .gnb-menu -->
             <div class="gnb-menu">
@@ -96,6 +66,32 @@
                         <i class="fa fa-caret-down"></i>
                     </a>
                 </div>
+            </div>
+             <div class="mobile-menuList">
+                <ul>
+                    <li>
+                        <label for="">
+                            <input type="text" placeholder="Search or jump to...">
+                        </label>
+                    </li>
+                    <li><a href="" class="header-link">Dashboard</a></li>
+                    <li><a href="" class="header-link">Pull requests</a></li>
+                    <li><a href="" class="header-link">Issues</a></li>
+                    <li><a href="" class="header-link">Marketplace</a></li>
+                    <li><a href="" class="header-link">Explore</a></li>
+                    <li>
+                        <a href="">
+                            <img src="./img//60060205.jpg" alt="">
+                            <span>clementbwkim</span> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <svg class="octicon octicon-sign-out v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 010 1.5h-2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 010 1.5h-2.5A1.75 1.75 0 012 13.25V2.75zm10.44 4.5H6.75a.75.75 0 000 1.5h5.69l-1.97 1.97a.75.75 0 101.06 1.06l3.25-3.25a.75.75 0 000-1.06l-3.25-3.25a.75.75 0 10-1.06 1.06l1.97 1.97z"></path></svg>
+                            <span>Sign out</span> 
+                        </a>
+                    </li>
+                </ul>
             </div>
         </header>
         <!-- main -->
@@ -902,11 +898,10 @@
                 </div>
             </div>
         </footer>
-    </div>
+    
 
     <script>
         function mobileMenuOpen(){
-            console.log(123);
             document.querySelector('.mobile-menuList').classList.toggle('on');
         }
     </script>
