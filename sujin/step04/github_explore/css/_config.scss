@@ -1,0 +1,33 @@
+%centering-rows {
+  > .row {
+    > * {
+      margin: auto;
+    }
+  }
+}
+
+$small-screen-width: 575px;
+
+$media-lists: (
+  'small': (
+    'max-width',
+    $small-screen-width,
+  ),
+);
+
+@mixin for-size($size) {
+  @if map-has-key($media-lists, $size) {
+    $selector: map-get($media-lists, $size);
+    @if length($selector) == 2 {
+      @media only screen and (#{nth($selector, 1)}: #{nth($selector, 2)}) {
+        @content;
+      }
+    } @else if length($selector) == 4 {
+      @media only screen and (#{nth($selector,1)}: #{nth($selector,2)}) and (#{nth($selector,3)}: #{nth($selector,4)}) {
+        @content;
+      }
+    } @else {
+      @error "invalid media-query constraint: args #{length($selector)}.";
+    }
+  }
+}
