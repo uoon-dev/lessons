@@ -1,0 +1,21 @@
+{
+  "name": "scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.common.js",
+  "scripts": {
+    "start": "webpack ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^4.2.1",
+    "mini-css-extract-plugin": "^0.10.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

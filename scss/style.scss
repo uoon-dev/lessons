@@ -1,0 +1,72 @@
+$xlarge-screen-width: 1800px;
+$large-screen-width: 1120px;
+//$large-screen-width: 1036px;
+$medium-screen-width: 768px;
+$small-screen-width: 575px;
+$xsmall-screen-width: 320px;
+$medium-screen-height: 768px;
+$media-lists: (
+  'xlarge': (
+    'min-width',
+    $xlarge-screen-width,
+  ),
+  'large': (
+    'min-width',
+    $large-screen-width,
+  ),
+  'large-yet-medium': (
+    'max-width',
+    $large-screen-width,
+    'min-width',
+    $medium-screen-width,
+  ),
+  'medium-upper': (
+    'min-width',
+    $medium-screen-width,
+  ),
+  'medium': (
+    'max-width',
+    $medium-screen-width,
+  ),
+  'small': (
+    'max-width',
+    $small-screen-width,
+  ),
+  'xsmall': (
+    'max-width',
+    $xsmall-screen-width,
+  ),
+  'medium-yet-small': (
+    'max-width',
+    $medium-screen-width,
+    'min-width',
+    $small-screen-width,
+  ),
+  'medium-height': (
+    'max-height',
+    $medium-screen-height,
+  ),
+  'mobile-landscape': (
+    'max-height',
+    $medium-screen-height,
+    'max-width',
+    $medium-screen-width,
+  ),
+);
+
+@mixin for-size($size) {
+  @if map-has-key($media-lists, $size) {
+    $selector: map-get($media-lists, $size);
+    @if length($selector) == 2 {
+      @media only screen and (#{nth($selector,1)}: #{nth($selector,2)}) {
+        @content;
+      }
+    } @else if length($selector) == 4 {
+      @media only screen and (#{nth($selector,1)}: #{nth($selector,2)}) and (#{nth($selector,3)}: #{nth($selector,4)}) {
+        @content;
+      }
+    } @else {
+      @error "invalid media-query constraint: args #{length($selector)}.";
+    }
+  }
+}
