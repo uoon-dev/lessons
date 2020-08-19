@@ -38,7 +38,7 @@
 
                     <nav>
                         <a href="/" class="header-links pc-txt">Pull requests</a>
-                        <a href="/" class="header-links s-pc-txt">Pulls</a>
+                        <a href="/" class="header-links tablet-txt">Pulls</a>
                         <a href="/" class="header-links">Issues</a>
                         <a href="/" class="header-links">Marketplace</a>
                         <a href="/" class="header-links">Explore</a>
@@ -112,8 +112,8 @@
                     </a>
                 </div>
             </div>
-            <div class="header-2depth-box header-items">
-                <div class="header-items-search header-2depth-items">
+            <div class="header-dropdown-menu header-items">
+                <div class="header-items-search header-dropdown-items">
                     <div class="search-wrap">
                         <form action="" class="search-form">
                             <input type="text" placeholder="Search or jump to..." />
@@ -1213,7 +1213,8 @@
 
     <script>
         function mobileMenuOn(){
-            document.querySelector('.header-2depth-box').classList.toggle('on');
+            debugger;
+            document.querySelector('.header-dropdown-menu').classList.toggle('on');
         }
     </script>
 </body>

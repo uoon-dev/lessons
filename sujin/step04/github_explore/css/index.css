@@ -56,16 +56,16 @@
 }
 
 .pc-txt {
-    display: inline-block !important;
+    display: inline-block;
 }
 
 .pc-header {
     display: block;
 }
 
-.s-pc-txt,
+.tablet-txt,
 .mo-header {
-    display: none !important;
+    display: none;
 }
 /*header*/
 header {
@@ -78,11 +78,11 @@ header {
     padding: 0 16px;
 }
 
-.header-logo {
+.header-contanier .header-logo {
     margin-right: 16px;
 }
 
-.header-logo-link {
+.header-logo .header-logo-link {
     color: #fff;
 }
 
