@@ -1,0 +1,28 @@
+@import './config.scss'; //import 시켜야 사용할 수 있다
+//for 변수명 from 시작 to 끝 {}
+//class를 만든 것 -> html element class에 pt-20 mt-10 적용
+
+@for $i from 1 to 100 {
+    .pt-#{$i} {
+        padding-top: $i * 0.25 + 'em';
+    }
+}
+
+@for $j from 1 to 100 {
+    .mt-#{$j} {
+        margin-top: $j * 0.25 + 'em';
+    }
+}
+
+.pc-header{
+    display: block;
+    color: #222222;
+    @extend %global-header; //변수 @extend
+    @include for-size(medium){ //함수를 적용 @include
+        color: #333333;
+    }
+
+    @include for-size(small){
+        display: none;
+    }
+}

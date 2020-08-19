@@ -40,9 +40,9 @@ header{
 header div{
     margin-right: 16px;
 }
-/* .hamburger-icon {
+.hamburger-icon {
     display: none;
-} */
+}
 header .mobile-menuList{
     display: none;
 }
@@ -73,7 +73,6 @@ header .mobile-menuList{
     background-color: transparent;
     border: none;
     box-shadow: none;
-    /* border-radius: 7px; */
     width: 220px;
 }
 .gnb-menu .search-bar input::placeholder{
@@ -96,8 +95,11 @@ header .mobile-menuList{
     display: none;
 }
 header .gnb-menu .mobile-dashboard{display: none;}
+
 header .mobile-profile{display: none;}
+
 header .mobile-logout{display: none;}
+
 /* .right-menu */
 .right-menu{
     display: flex;
@@ -118,10 +120,6 @@ header .mobile-logout{display: none;}
     vertical-align: text-bottom;
 }
 /* main */
-main{
-    /* background:rgba(0,0,0,0.3) */
-    
-}
 
 main .lnb-menu{
     border-bottom: 1px solid rgba(0,0,0,.1);
@@ -190,12 +188,6 @@ main .email-btn a{
     display: flex;
     margin: 0 auto;
     max-width: 1280px;
-}
-.sub-main .border-rounded-left{
-   /* padding: 0 16px; */
-}
-.sub-main .border-rounded{
-    /* padding: 16px; */
 }
 
 /* aside */
