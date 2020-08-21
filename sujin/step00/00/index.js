@@ -1,6 +1,6 @@
 // (() => {
 
-// });
+// })();
 
 function parallaxOverlay(){
     let scroll = true;

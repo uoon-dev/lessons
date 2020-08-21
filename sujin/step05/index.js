@@ -1,24 +1,26 @@
 function buyLottos() {
     var cost = document.querySelector('.cost').value;
-    var getLottos = cost / 1000;
-    var getLottosText = document.querySelector('.get-lottos');
-    getLottosText.innerHTML = '총 ' + getLottos + '개를 구입했습니다.';
+    var minPrice = 1000;
+    var lottoCnt = cost / minPrice;
+    var lottoCntText = document.querySelector('.lotto-numbers-text');
+    lottoCntText.innerHTML = '총 ' + lottoCnt + '개를 구입했습니다.';
 
-    if (cost < 1000) {
-        getLottosText.innerHTML = '최소 구매단위는 1000원 입니다.'
+    if (cost < minPrice) {
+        lottoCntText.innerHTML = '최소 구매단위는 ' + minPrice +'원 입니다.'
     }
 
-    for (var i = 0; i < getLottos; i++) {
+    for (var i = 0; i < lottoCnt; i++) {
         pickNumbers();
     }
 }
 
 function setLuckyNumbers() {
     var luckyNumbersArr = [];
+    var luckyNumberText = "";
     // var numbers = document.querySelector('.numbers');
     var pickNumbersMaxLen = 6;
     var resultNumbers = document.querySelector('.result-numbers');
-    var button = document.querySelector('#lucky-numbers-button');
+    var button = document.querySelector('.lucky-numbers-button');
 
     while (luckyNumbersArr.length < pickNumbersMaxLen) {
         var getNumbers = parseInt(Math.random() * 45) + 1;
@@ -27,33 +29,33 @@ function setLuckyNumbers() {
         }
     }
 
-
-    // console.log('pickArr : ' + pickNumbers);
+    for(i = 0; i < luckyNumbersArr.length; i++){
+        luckyNumberText += '<span>' + luckyNumbersArr[i] + '</span>';
+    }
+    
+    console.log('luckyNumberText : ' + luckyNumberText);
     console.log('luckyArr : ' + luckyNumbersArr);
     resultNumbers.innerHTML =
         '<h4>Lucky Numbers</h4>'
-        + '<p><span>' + luckyNumbersArr[0] + '</span>'
-        + '<span>' + luckyNumbersArr[1] + '</span>'
-        + '<span>' + luckyNumbersArr[2] + '</span>'
-        + '<span>' + luckyNumbersArr[3] + '</span>'
-        + '<span>' + luckyNumbersArr[4] + '</span>'
-        + '<span>' + luckyNumbersArr[5] + '</span></p>';
+        + '<p>' + luckyNumberText +'</p>';
 
-        button.setAttribute("disabled","true");
-        button.setAttribute("style","background-color: #ddd; color: #333; border-color: #333; cursor: auto;")
+    button.classList.add('button-disabled');
+    button.setAttribute("disabled","true");
 
 }
 
 function pickNumbers(){
     var pickNumbersArr = [];
     var pickNumbersMaxLen = 6;
-    var buyNumbers = document.querySelector('.buy-numbers');
+    var buyNumbers = document.querySelector('.lotto-numbers-ball');
     var buyNumbersObj = document.createElement('div');
-    buyNumbersObj.classList.add('buy-numbers-object');
+    buyNumbersObj.classList.add('lotto-numbers-ball-object');
     buyNumbers.appendChild(buyNumbersObj);
 
     while (pickNumbersArr.length < pickNumbersMaxLen) {
         var getNumbers = parseInt(Math.random() * 45) + 1;
+        console.log('pickNumbersArr : ' + pickNumbersArr);
+        console.log('getNumbers : ' + getNumbers);
         if (pickNumbersArr.indexOf(getNumbers) == -1) {
             pickNumbersArr.push(getNumbers);
         }

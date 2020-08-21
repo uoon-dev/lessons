@@ -5,145 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lottos</title>
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-            box-sizing: border-box;
-        }
-
-        .wrap {
-            width: 80%;
-            margin: 50px auto;
-            max-width: 942px;
-        }
-
-        .buy-lottos {
-            flex: auto;
-        }
-
-        .buy-lottos .buy-lottos-input {
-            width: 400px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .buy-lottos .buy-lottos-input .cost {
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 5px;
-            font-size: 15px;
-            text-align: center;
-        }
-
-        .buy-lottos .buy-lottos-input input:focus {
-            outline: none;
-            border-bottom: 1px solid #428bca;
-        }
-
-        .buy-lottos .buy-lottos-input>button,
-        .lucky-numbers > button {
-            display: block;
-            width: 100%;
-            height: 50px;
-            margin: 20px auto;
-            background-color: #428bca;
-            border: 1px solid #357ebd;
-            border-radius: 3px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .buy-lottos .buy-lottos-input>button:hover,
-        .lucky-numbers > button:hover {
-            background-color: #3276b1;
-            border-color: #285e8e;
-            transition: all .3s ease;
-        }
-
-        .get-lottos {
-            text-align: center;
-        }
-
-        .buy-numbers {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .buy-numbers-object {
-            display: inline-block;
-            padding: 10px 20px 50px;
-            /* width: 200px; */
-            height: 100px;
-            margin: 10px;
-            background-color: #fff;
-            font-size: 15px;
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        .buy-numbers-object>h4 {
-            display: block;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-
-        .buy-numbers-object>p>span {
-            display: inline-block;
-            border: 1px solid #ddd;
-            border-radius: 50%;
-            margin: 5px;
-            padding: 5px;
-            width: 20px;
-            height: 20px;
-        }
-
-        .lucky-numbers > button {
-            width: 400px;
-            margin: 30px auto 0;
-        }
-
-        .result-numbers {
-            text-align: center;
-        }
-
-        .result-numbers>h4 {
-            font-size: 30px;
-        }
-
-        .result-numbers>p>span {
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-            width: 30px;
-            height: 30px;
-            margin: 10px;
-            padding: 10px;
-            background: #69c8f2;
-            border: 2px solid #333;
-            border-radius: 50%;
-            box-shadow: 3px 3px 5px #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div class="wrap">
-        <div class="buy-lottos">
-            <div class="buy-lottos-input">
-                <input type="text" class="cost" placeholder="금액을 입력하세요">
+        <div class="lotto-numbers">
+            <div class="lotto-numbers-input">
+                <input type="number" class="cost" placeholder="금액을 입력하세요">
                 <button onclick="buyLottos()">구입</button>
             </div>
-            <p class="get-lottos"></p>
-            <div class="buy-numbers"></div>
+            <p class="lotto-numbers-text"></p>
+            <div class="lotto-numbers-ball"></div>
         </div>
 
         <div class="lucky-numbers">
-            <button id="lucky-numbers-button" onclick="setLuckyNumbers()">당첨번호확인</button>
+            <button class="lucky-numbers-button" onclick="setLuckyNumbers()">당첨번호확인</button>
             <div class="result-numbers"></div>
         </div>
     </div>
