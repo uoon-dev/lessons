@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Overlay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="smooth-scroll-wrapper">
+        <div class="content">
+            <div class="container">
+                <div class="image-container">
+                    <h2 class="text text-dark">
+                        <div class="parallax-title">
+                            we live in the details
+                        </div>
+                    </h2>
+                </div>
+                <h2 class="text">
+                    <div class="parallax-title">
+                        we live in the details
+                    </div>
+                </h2>
+            </div>
+        </div>
+    </main>
+    <script>
+        let atScroll = false;
+        let parallaxTitle = document.querySelectorAll('.text');
+
+        const scrollProgress = () => {
+            atScroll = true;
+        };
+
+        const raf = () => {
+            if(atScroll){
+                parallaxTitle.forEach((ele, index) => {
+                    ele.style.transform = 'translateX('+window.scrollY / 8 + '%)';
+                });
+                atScroll = false;
+            }
+            requestAnimationFrame(raf);
+        };
+
+        requestAnimationFrame(raf);
+        window.addEventListener('scroll', scrollProgress);
+    </script>
+</body>
+
+</html>
