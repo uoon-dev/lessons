@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Slider</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,200;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="slide slide-01"></div>
+            <div class="slide slide-02" id="slide"></div>
+        </div>
+    </main>
+
+    <script>
+        let slide = document.querySelector('#slide');
+        window.onmousemove = function(e){
+            let x = e.clientX;
+            slide.style.left = x + 'px';
+        }
+    </script>
+</body>
+</html>

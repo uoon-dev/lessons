@@ -1,0 +1,34 @@
+html, body {
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .slide.slide-01 {
+    background: url(yellow_shoe.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: 100%; 
+    background-position: center;
+}
+
+.container .slide.slide-02 {
+    background: url(blue_shoe.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+    left: 50%;
+}

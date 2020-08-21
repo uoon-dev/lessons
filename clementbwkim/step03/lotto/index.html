@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/lotto.css" />
+    <title>Lotto Number Generator</title>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header-wrap">
+          <div class="welcoming">
+            <h1>Welcome to Lotto World !!</h1>
+            <p>
+              Tip. 되도록 많이 사서 확률을 높이세요. 당첨으로 가는 지름길입니다
+              !
+            </p>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-wrap">
+          <div class="main-frame">
+            <div class="buying-lotto">
+              <h3>● 로또를 몇장 구매하시겠습니까?(각 1000원)</h3>
+              <p>※ 거스름돈은 반환되지 않습니다.</p>
+              ☞ 금액:
+              <input class="paidAmount" type="text" name="" id="" value="" /> 원
+              <button onclick="buyLottos()">구입</button>
+              <h5>총 <span class="own-lottos"></span>장을 구매했습니다.</h5>
+            </div>
+            <div class="own-lottos-spot">
+              <h3>♣ 아래 구매하신 로또번호를 확인해주세요.</h3>
+            </div>
+            <div class="winner-numbers-spot">
+              <h3>♧ 당첨번호를 확인해주세요, 행운을 빕니다!</h3>
+              <div class="winner-numbers">
+                <button onclick="setLuckyNumbers()">
+                  당첨번호 확인
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- <script src="./js/lotto.js"></script> -->
+    <script src="./js/lotto2.js"></script>
+  </body>
+</html>

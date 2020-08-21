@@ -1,0 +1,29 @@
+.content {
+  width: 70%;
+  margin: 160px auto;
+}
+
+section {
+  transition: transform 0.35s;
+  will-change: transform;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+p {
+  font-weight: lighter;
+  color: #222222;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+img {
+  width: 100%;
+}
+
+div {
+  margin-bottom: 80px;
+}

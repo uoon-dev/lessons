@@ -1,0 +1,47 @@
+span {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 16px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3;
+  border: 1px solid #333333;
+}
+button {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+header,
+main {
+  padding: 0 16px;
+}
+.header-wrap {
+  padding: 16px;
+}
+.header-wrap .welcoming h1,
+p {
+  margin: 0;
+}
+
+.main-wrap .main-frame {
+  padding: 16px;
+}
+.main-wrap .buying-lotto h3 {
+  margin: 0;
+}
+.main-wrap .buying-lotto p {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+.main-wrap .buying-lotto .own-lottos {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  width: 10px;
+  height: 0;
+  border: 0;
+}
