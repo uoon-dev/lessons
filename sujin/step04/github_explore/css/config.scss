@@ -1,0 +1,56 @@
+%global-header {
+    border: 1px solid #ddd;
+    background: rgba(0,0,0,0.5);
+    font-size: 13px;
+}
+%centering-rows {
+    > .row{
+        >* {
+            margin: auto;
+        }
+    }
+} // @extend %centering-rows
+
+$large-screen-width: 1120px; 
+$medium-screen-width: 768px; // iPad
+$small-screen-width: 575px; // 조금 큰 사이즈의 모바일
+// $xsmall-screen-width: 375px; // 일반적으로 375px이 많음
+// $xxsmall-screen-width: 320px;
+
+
+// map(객체화) (map & value) 
+$media-lists: (
+    'large' : (
+        'min-width',
+        $large-screen-width,
+    ),
+    'medium' : (
+        'max-width',
+        $medium-screen-width,
+    ),
+    'small' : (
+        'max-width',
+        $small-screen-width,
+    ),  
+)
+
+map-get($media-lists, large); // return 
+
+@mixin for-size($size) {
+    @if map-has-key($media-lists, $size){
+        $selector: map-get($media-lists, $size);
+        @if length($selector) == 2 {
+            @media only screen and (#{nth($selector,1)}: #{nth($selector,2)}) {
+                @content;
+                // @content 는 각 스콥에 들어가는 속성
+            }
+        }
+    } @else if length($selector) == 4 {
+        @media only screen and (#{nth($selector,1)}: #{nth($selector,2)}) and (#{nth($selector,3)}: #{nth($selector,4)}) {
+            @content;
+        }
+    } @else {
+        @error "invalid media-query constraint: args #{length($selector)}.";
+    }
+} // ex : @include for-size(small){display:none}
+
