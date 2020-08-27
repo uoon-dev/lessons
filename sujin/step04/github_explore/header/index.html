@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-dropdown-menu">
+            <button class="btn-dropdown-menu"><i class="fa fa-bars"></i></button>
+        </div>
+        <!-- 
+            header-logo 따로 빼준 이유는 flex (child property) 적용 가능하기 때문
+            조건 : 로고가 모바일에서는 가운데에서 위치해야함
+         -->
+        <a href="" class="header-logo">
+            <i class="fa fa-github"></i>
+        </a>
+
+        <!-- 
+            원래는 따로 레이아웃을 구성해야되지만 모바일 디자인 구조상 하나에 넣어줘야함 
+            form 이나 input 같은 경우 class에 표시해주면 좋음
+
+            한 그룹안에서 search / items로 구분
+        -->
+        <div class="header-navigation-wrapper hidden">
+            <div class="header-search">
+                <form class="header-search-form">
+                    <input type="text" class="header-search-input" />
+                </form>
+            </div>
+            <nav class="header-navigation">
+                <ul class="header-navigation-items">
+                    <li class="header-navigation-item">
+                        <a href="">Pull Requests</a>
+                        <!-- <a href="">Pulls</a> / tablet에서 -->
+                    </li>
+                    <li class="header-navigation-item">
+                        <a href="">Issues</a>
+                    </li>
+                    <li class="header-navigation-item">
+                        <a href="">Marketplace</a>
+                    </li>
+                    <li class="header-navigation-item">
+                        <a href="">Explore</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-navigation-appended">
+            <span>
+                <i class="fa fa-bell-o"></i>
+            </span>
+            <span>
+                <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <span>
+                <i class="fa fa-code"></i>
+            </span>
+        </div>
+    </header>
+    <script src="./index.js"></script>
+</body>
+
+</html>

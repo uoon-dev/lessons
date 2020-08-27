@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,22 +10,27 @@
 
 <body>
     <div class="wrap">
-        <div class="lotto-numbers">
-            <div class="lotto-numbers-input">
-                <input type="number" class="cost" placeholder="금액을 입력하세요">
-                <button onclick="buyLottos()">구입</button>
+        <div class="contents">
+            <div class="input-contents">
+                <input type="text" class="input-price" placeholder="구매할 값 입력" />
+                <button class="button" onclick="buyLottos(document.querySelector('.input-price').value)">buy</button>
             </div>
-            <p class="lotto-numbers-text"></p>
-            <div class="lotto-numbers-ball"></div>
-        </div>
 
-        <div class="lucky-numbers">
-            <button class="lucky-numbers-button" onclick="setLuckyNumbers()">당첨번호확인</button>
-            <div class="result-numbers"></div>
+            <div class="lotto-contents">
+
+            </div>
+
+            <div class="result-contents">
+                <button class="button" onclick="setLuckyNumbers()">당첨번호확인</button>
+                <div class="lucky-number-contents">
+                    
+                </div>
+                <button class="button" onclick="displayResult()">당첨확인</button>
+            </div>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

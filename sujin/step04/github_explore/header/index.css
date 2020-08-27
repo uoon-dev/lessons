@@ -1,0 +1,85 @@
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: hsla(0, 0%, 100%, .7); 
+    background-color: #24292e;
+    flex-wrap: wrap;
+}
+
+.header .header-logo > i{
+    font-size: 20px;
+}
+
+.header .header-dropdown-menu {
+    display: none;
+}
+
+.header-navigation-wrapper {
+    display: flex;
+    flex: 1;
+    /*
+        order : flex child 속성 적용 가능 (순서)
+    */
+    order: 1;
+}
+
+.header-navigation-wrapper.hidden {
+    display: none;
+}
+
+.header-navigation-wrapper .header-search {
+    margin: 0 20px;
+}
+
+.header-navigation-wrapper .header-navigation-items {
+    display: flex;
+}
+
+.header-navigation-wrapper .header-navigation-items .header-navigation-item {
+    margin-right: 5px;
+}
+
+.header-navigation-appended {
+    /*
+        html parser가 layout 읽을 때의 우선순위
+    */
+    order: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .header .header-dropdown-menu {
+        display: block;
+    }
+
+    .header .header-logo {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .header-navigation-wrapper {
+        flex-direction: column;
+        order: 2;
+        min-width: 100%;
+        margin-top: 20px;
+    }
+
+    .header-navigation-wrapper .header-search {
+        margin: 0;
+    }
+
+    .header-navigation-wrapper .header-navigation-items {
+        flex-direction: column;
+    }
+
+    .header-navigation-appended {
+        order: 1;
+    }
+}

@@ -1,73 +1,118 @@
-function buyLottos() {
-    var cost = document.querySelector('.cost').value;
-    var minPrice = 1000;
-    var lottoCnt = cost / minPrice;
-    var lottoCntText = document.querySelector('.lotto-numbers-text');
-    lottoCntText.innerHTML = '총 ' + lottoCnt + '개를 구입했습니다.';
+const lottoPrice = 1000;
+const lottoNumberLimit = 45;
+const lottoMaxLength = 6;
 
-    if (cost < minPrice) {
-        lottoCntText.innerHTML = '최소 구매단위는 ' + minPrice +'원 입니다.'
-    }
+const buyLottos = (inputPrice) => {
+    console.log('buyLotts(inputPrice) >>> ');
+    const boughtLottoCnt = Math.floor(inputPrice / lottoPrice);
 
-    for (var i = 0; i < lottoCnt; i++) {
-        pickNumbers();
-    }
+    console.log('inputPrice : ' + inputPrice);
+    console.log('boughtLottoCnt : ' + boughtLottoCnt);
+
+    createLottos(boughtLottoCnt);
+    console.log('buyLotts(inputPrice) <<< ');
 }
 
-function setLuckyNumbers() {
-    var luckyNumbersArr = [];
-    var luckyNumberText = "";
-    // var numbers = document.querySelector('.numbers');
-    var pickNumbersMaxLen = 6;
-    var resultNumbers = document.querySelector('.result-numbers');
-    var button = document.querySelector('.lucky-numbers-button');
+const generateRandomNumber = (maxLen) => Math.floor(Math.random() * maxLen); 
 
-    while (luckyNumbersArr.length < pickNumbersMaxLen) {
-        var getNumbers = parseInt(Math.random() * 45) + 1;
-        if (luckyNumbersArr.indexOf(getNumbers) == -1) {
-            luckyNumbersArr.push(getNumbers);
-        }
+const createLottoNumbers = () => {
+    console.log('createLottoNumbers() >>> ');
+    const lottoNumbers = [];
+    const numberRange = [];
+
+    for(let i = 0; i < lottoNumberLimit; i++){
+        numberRange.push(i + 1);
     }
 
-    for(i = 0; i < luckyNumbersArr.length; i++){
-        luckyNumberText += '<span>' + luckyNumbersArr[i] + '</span>';
+    for(let i = 0; i < lottoMaxLength; i++){
+        const pickedNumber = numberRange.splice(generateRandomNumber(numberRange.length), 1)[0];
+        lottoNumbers.push(pickedNumber);
     }
+    console.log('createLottoNumbers() <<< ');
+    return lottoNumbers;
+}
+
+const createLottos = (boughtLottoCnt) => {
+    console.log('createLottos(boughtLottoCnt) >>> ');
+    const lottos = [];
+    let lottoBalls = "";
+
+    for (let i = 0; i < boughtLottoCnt; i++){
+        lottos.push(createLottoNumbers());
+    }
+
+    for (let i = 0; i< lottos.length; i++){
+        lottoBalls += '<span>' + lottos[i] + '</span>';
+    }
+
+    let lottoContents = document.querySelector('.lotto-contents');
+    let lottoContentObj = document.createElement('div');
+    lottoContentObj.classList.add('lotto-contents-balls');
+    lottoContents.appendChild(lottoContentObj);
+
+    lottoContentObj.innerHTML = lottoBalls;
     
-    console.log('luckyNumberText : ' + luckyNumberText);
-    console.log('luckyArr : ' + luckyNumbersArr);
-    resultNumbers.innerHTML =
-        '<h4>Lucky Numbers</h4>'
-        + '<p>' + luckyNumberText +'</p>';
-
-    button.classList.add('button-disabled');
-    button.setAttribute("disabled","true");
-
+    console.log('createLottos(boughtLottoCnt) <<< ');
+    return lottos;
 }
 
-function pickNumbers(){
-    var pickNumbersArr = [];
-    var pickNumbersMaxLen = 6;
-    var buyNumbers = document.querySelector('.lotto-numbers-ball');
-    var buyNumbersObj = document.createElement('div');
-    buyNumbersObj.classList.add('lotto-numbers-ball-object');
-    buyNumbers.appendChild(buyNumbersObj);
+const setLuckyNumbers = () => {
 
-    while (pickNumbersArr.length < pickNumbersMaxLen) {
-        var getNumbers = parseInt(Math.random() * 45) + 1;
-        console.log('pickNumbersArr : ' + pickNumbersArr);
-        console.log('getNumbers : ' + getNumbers);
-        if (pickNumbersArr.indexOf(getNumbers) == -1) {
-            pickNumbersArr.push(getNumbers);
+    const luckyNumbers = [];
+
+    luckyNumbers.push(createLottoNumbers());
+
+    console.log('luckyNumbers : ' + luckyNumbers);
+
+    let luckyNumberContents = document.querySelector('.lucky-number-contents');
+    let luckyNumberConObj = document.createElement('div');
+    luckyNumberConObj.classList.add('lucky-number-balls');
+    luckyNumberContents.appendChild(luckyNumberConObj);
+
+    luckyNumberConObj.innerHTML ='<span>' + luckyNumbers + '</span>'
+
+    return luckyNumbers;
+}
+
+const compareLottos = () => {
+    console.log('compareLottos() >>> ');
+    
+    const boughtLottoNumbers = [];
+    const winNumbers = [];
+    let equalNumbers = 0;
+
+    createLottos(boughtLottoCnt);
+    setLuckyNumbers();
+
+    boughtLottoNumbers.push(createLottos(boughtLottoCnt));
+    winNumbers.push(setLuckyNumbers());
+
+    console.log('boughtLottoNumbers : ' + boughtLottoNumbers);
+    console.log('boughtLottoNumbers.length : ' + boughtLottoNumbers.length);
+    console.log('winNumbers : ' + winNumbers);
+    console.log('winNumbers.length : ' + winNumbers.length);
+
+    for (let i = 0; i < boughtLottoNumbers.length; i++){
+        for (let j = 0; j < winNumbers.length; j++){
+            if(boughtLottoNumbers[i]===winNumbers[j]){gg
+                equalNumbers++;
+            }
         }
     }
+    console.log('equalNumbers : ' + equalNumbers);
 
-    console.log('pickMethodArr : ' + pickNumbersArr);
-    buyNumbersObj.innerHTML =
-        '<h4>Lotto</h4>'
-        + '<p class="numbers"><span>' + pickNumbersArr[0] + '</span>'
-        + '<span>' + pickNumbersArr[1] + '</span>'
-        + '<span>' + pickNumbersArr[2] + '</span>'
-        + '<span>' + pickNumbersArr[3] + '</span>'
-        + '<span>' + pickNumbersArr[4] + '</span>'
-        + '<span>' + pickNumbersArr[5] + '</span></p>';
+    console.log('compareLottos() <<< ');
+    return equalNumbers;
 }
+
+const displayResult = () => {
+    console.log('displayResult() >>> ');
+    console.log('displayResult() <<< ');
+}
+
+console.log(' end) buyLottos(2000) : ' + buyLottos(5000));
+console.log(' end) createLottos(2) : ' + createLottos(5));
+console.log(' end) createLottoNumbers() : ' + createLottoNumbers());
+console.log(' end) compareLottos() : ' + compareLottos());
+console.log(' end) displayResult() : ' + displayResult());
+
