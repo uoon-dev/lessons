@@ -1,0 +1,19 @@
+.my-lottos .my-lotto {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.my-lottos .my-lotto .lotto-number {
+  display: inline-block;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border: 1px solid black;
+}
+
+.my-lottos .my-lotto .lotto-number.wins {
+  background-color: steelblue;
+  color: white;
+}
