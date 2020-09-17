@@ -22,7 +22,7 @@ const getType = (value) => {
 
 const $ = (value) => {
   const el = [];
-  let globalDuration;
+  let globalDuration = 0;
   /**
     1. HTML 요소 그대로 반환하기
     const title = document.querySelector('.title');
@@ -63,28 +63,45 @@ const $ = (value) => {
   };
 
   el.fadeOut = function (duration, callbackFn) {
-    globalDuration = duration;
-    this.forEach((tag) => {
-      tag.style.transition = `opacity ${duration / 1000}s`;
-      tag.style.opacity = 0;
-    });
-
-    setTimeout(callbackFn, duration);
+    const fadePromise = new Promise(resolve => {
+      setTimeout(() => {
+        this.forEach((tag) => {
+          tag.style.transition = `opacity ${duration / 1000}s`;
+          tag.style.opacity = 0;
+        });
+        resolve(duration);
+      }, globalDuration)
+    })
+    fadePromise.then((duration) => {
+      globalDuration += duration;      
+      setTimeout(() => {
+        callbackFn();
+        globalDuration = 0;
+      }, duration)
+    })
 
     return this;
   };
 
   el.fadeIn = function (duration, callbackFn) {
-    if (globalDuration) {
-      duration = globalDuration + duration;
-    }
-
-    this.forEach((tag) => {
-      tag.style.transition = `opacity ${duration / 1000}s`;
-      tag.style.opacity = 1;
-    });
-
-    setTimeout(callbackFn, duration);
+    const fadePromise = new Promise(resolve => {
+      // if (globalDuration) {
+      //   globalDuration += duration;
+      // }
+      setTimeout(() => {
+        this.forEach((tag) => {
+          tag.style.transition = `opacity ${duration / 1000}s`;
+          tag.style.opacity = 1;
+        });
+        resolve(duration);
+      }, globalDuration)
+    })
+    fadePromise.then((duration) => {
+      globalDuration = 0;
+      setTimeout(() => {
+        callbackFn();
+      }, duration)      
+    })
 
     return this;
   };
@@ -113,14 +130,96 @@ const $ = (value) => {
     return this;
   };
 
+  el.data = function(key, value) {
+    if (arguments.length === 0) {
+      return this[0].dataset;
+    } else if (arguments.length === 1) {
+      if (getType(key) === 'Object') {
+        this.forEach((tag) => {
+          for (const k in key) {
+            tag.dataset[k] = key[k];
+          }
+        })
+        return this;
+      } 
+      return this[0].dataset[key];
+    } else if (arguments.length === 2) {
+      this.forEach((tag) => {
+        tag.dataset[key] = value;
+      })
+    }
+
+    return this;
+  }
+
+  el.siblings = function(selectors) {
+    let siblings = Array.from(this[0].parentNode.children);
+    let filteredSiblings = [];
+
+    filteredSiblings = siblings.filter(sibling => sibling !== this[0] && sibling.nodeName !== 'SCRIPT').map(sibling => $(sibling));
+
+    return filteredSiblings;
+
+    // const siblings = [];
+    // let i = 1;
+    // let isFirst = true;
+    // let j = 1;
+
+    // let previousSibling;
+
+    // while(i) {
+    //   if (isFirst) {
+    //     previousSibling = this[0].previousElementSibling;
+    //     isFirst = false;
+    //   } else {
+    //     previousSibling = (previousSibling || {}).previousElementSibling;
+    //   }
+      
+    //   if (previousSibling) {
+    //     siblings.push(previousSibling)
+    //   } else {
+    //     isFirst = true;
+    //     i--;
+    //   }
+    // }
+
+    // let nextSibling;
+
+    // while(j) {
+    //   if (isFirst) {
+    //     nextSibling = this[0].nextElementSibling;
+    //     isFirst = false;
+    //   } else {        
+    //     nextSibling = (nextSibling || {}).nextElementSibling;
+    //   }
+    //   nextSibling = (nextSibling || {}).nextElementSibling;
+
+    //   if (nextSibling) {
+    //     siblings.push(nextSibling)
+    //   } else {
+    //     isFirst = true;
+    //     j--;
+    //   }
+    // }
+
+    return siblings;
+  }
+
   return el;
 };
 
-$('.title')
-  .map(function (i, tag) {
-    return tag.addClass('ads');
-  })
-  .text('adawdawddwad');
+$('.title').data('role', 'this is header');
+console.log($('.title').data('role'));
+// $('.title').data({ role: 'this is header', water: 'water!!' });
+// $('.title').data({ role: 'this is header', water: 'water!!' });
+// console.log($('.title').data('role'));
+// $('h2').text()
+
+
+  // .map(function (i, tag) {
+  //   return tag.addClass('ads');
+  // })
+  // .text('adawdawddwad');
 
 // $('.title').addClass(['a', 'b']);
 // $('.title').addClass('c d');
